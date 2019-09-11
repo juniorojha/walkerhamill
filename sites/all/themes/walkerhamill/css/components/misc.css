@@ -1,0 +1,1664 @@
+/**
+ * @file
+ * SMACSS Modules
+ *
+ * Adds modular sets of styles.
+ *
+ * Additional useful selectors can be found in Zen's online documentation.
+ * https://drupal.org/node/1707736
+ */
+
+/**
+ * Wireframes.
+ */
+.with-wireframes #header,
+.with-wireframes #main,
+.with-wireframes #content,
+.with-wireframes #navigation,
+.with-wireframes .region-sidebar-first,
+.with-wireframes .region-sidebar-second,
+.with-wireframes #footer,
+.with-wireframes .region-bottom {
+  outline: 1px solid #ccc;
+}
+.lt-ie8 .with-wireframes #header,
+.lt-ie8 .with-wireframes #main,
+.lt-ie8 .with-wireframes #content,
+.lt-ie8 .with-wireframes #navigation,
+.lt-ie8 .with-wireframes .region-sidebar-first,
+.lt-ie8 .with-wireframes .region-sidebar-second,
+.lt-ie8 .with-wireframes #footer,
+.lt-ie8 .with-wireframes .region-bottom {
+  /* IE6/7 do not support the outline property. */
+  border: 1px solid #ccc;
+}
+
+/**
+ * Accessibility features.
+ */
+
+/* element-invisible as defined by http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
+.element-invisible,
+.element-focusable,
+#navigation .block-menu .block__title,
+#navigation .block-menu-block .block__title {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* Turns off the element-invisible effect. */
+.element-focusable:active,
+.element-focusable:focus {
+  position: static !important;
+  clip: auto;
+  height: auto;
+  width: auto;
+  overflow: auto;
+}
+
+/*
+ * The skip-link link will be completely hidden until a user tabs to the link.
+ */
+#skip-link {
+  margin: 0;
+}
+#skip-link a,
+#skip-link a:visited {
+  display: block;
+  width: 100%;
+  padding: 2px 0 3px 0;
+  text-align: center;
+  background-color: #666;
+  color: #fff;
+}
+
+/**
+ * Branding header.
+ */
+
+header {
+  padding-top: 50px;
+}
+
+body.front header {
+  padding-top: 0;
+}
+body.cke_show_borders {
+  padding: 5px;
+}
+body.cke_show_borders ul,
+body.cke_show_borders ol {
+  padding: 0 2em;
+}
+
+/* Wrapping link for logo. */
+.header__logo {
+/*  float: left; /* LTR */
+  margin: 0;
+  padding: 0;
+}
+
+/* Logo image. */
+.header__logo-image {
+  vertical-align: bottom;
+  width: 300px;
+}
+
+/* Wrapper for website name and slogan. */
+.header__name-and-slogan {
+  /* float: left; */
+}
+
+/* The name of the website. */
+.header__site-name {
+  margin: 0;
+  font-size: 2em;
+  line-height: 1.5em;
+  display: none;
+}
+
+/* The link around the name of the website. */
+.header__site-link:link,
+.header__site-link:visited {
+  color: #000;
+  text-decoration: none;
+}
+.header__site-link:hover,
+.header__site-link:focus {
+  text-decoration: underline;
+}
+
+/* The slogan (or tagline) of a website. */
+.header__site-slogan {
+  margin: 0;
+}
+
+/* The secondary menu (login, etc.) */
+.header__secondary-menu {
+  float: right; /* LTR */
+}
+
+/* Wrapper for any blocks placed in the header region. */
+.header__region {
+  /* Clear the logo. */
+  clear: both;
+}
+
+/**
+ * Navigation bar.
+ */
+#navigation {
+  /* Sometimes you want to prevent overlapping with main div. */
+  /* overflow: hidden; */
+}
+#navigation .block {
+  margin-bottom: 0;
+}
+
+/* Main menu and secondary menu links and menu block links. */
+#navigation .links,
+#navigation .menu {
+  margin: 0;
+  padding: 0;
+  text-align: left; /* LTR */
+}
+/*#navigation .links li,*/
+#navigation .menu li {
+  /* A simple method to get navigation links to appear in one line. */
+  float: left; /* LTR */
+  padding: 0 10px 0 0; /* LTR */
+  list-style-type: none;
+  list-style-image: none;
+}
+
+/**
+ * Breadcrumb navigation.
+ */
+.breadcrumb ol {
+  margin: 0;
+  padding: 0;
+}
+.breadcrumb li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * Titles.
+ */
+.page__title,          /* The title of the page. */
+.node__title,          /* Title of a piece of content when it is given in a list of content. */
+.block__title,         /* Block title. */
+.comments__title,      /* Comment section heading. */
+.comments__form-title, /* Comment form heading. */
+.comment__title {      /* Comment title. */
+  margin: 0;
+}
+
+body.front .page__title {
+	display: none;
+}
+
+h1, h2, h3, h4, h5 {
+font-weight: 300;
+margin: 0;
+padding: 0;
+line-height: 1.2;
+}
+
+.page__title {
+  font-size: 1.8em;
+  color: #222;
+  margin: 0 0 0.3em;
+}
+
+/**
+ * Messages.
+ */
+.messages,
+.messages--status,
+.messages--warning,
+.messages--error {
+  margin: 1.5em 0;
+  padding: 10px 10px 10px 50px; /* LTR */
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAD6UlEQVR42s2WX0xbVRzH3YwmC4k+GF/0ZS/S267/bmnX9nL7bwstZlnbjTDYyoC5GCbB0ZW5pdJCe6swbLFA6bpWIGuRMWVjKGP+21QW3SZBSAjGh4XEaTZTH82Cm/3ztS2xs7mw4KLRk3xyzj33/H6fe5Pz7zEA/yr/vUDukj9FH6drqTaqT8EoPs/UV+nX6TD1BlUh9AqLHlmgPKLcRHmoCOWmElK/FOKTYpS8UwLJkASiUyLI3pKhlClN0g46qj+qL/pbArlbrlO1q25JeiSgR2iYJ8ywXLSg/qP6LNl2ro8+Q4MMkKCd9K2t3q3KdQnkXXIF5aISkgEJzONm1F2qW52pDJN1MI2bUBIuAdVOJWSMTPNQgX6/vkjVpvpREpag6oMqWCYta1IzbsHh9ga0RJtzY8URMdRO9U/KSuWmNQUqh2pY3CtG+fvlqJyofMAFNrZAE+7e/RWR4X4cD9tgOGsA2U2CdtMDqwqyMyIzQ5KKqAKmcyaYxkzYd3YvjGNGFtXRPRj58DT+LOemRrFnrBLyITmUDmUyO/NYgu2d26ukHVJo3tXAMGpAs+cQmh0NeClan30uwN7TgnQ6nRd4r3thOGOAJqYB2UVC79AfZAnKHGUxQa8A2tNaNLW/jKvXv8Dyb8s4yryKA4O10A3roIvpUB+swTdz1/LJZ27PQBvT5lBH1RD4BChzlQ2wBNtc22aE/ULQgzRCl4P5BPcT93GMOYz9wb2QhCRgAq35d8u/L2PXe7tADVGgBlcQ+AXQtmlvsP/gzbJZvp8PMkJCFBYh8m0knyiVSsHe0YIGZz1+/uVOvt8z7QGvnwf+ST5EIRHIUyR4fh50rbp5lsDcYR4ReAXgBrng9q/Qfa0bfy035r7Ot2dvz4IX4IEIEAXwvDzscOw4zxJUd1YfEXlE4Aa4BQHMlwzSSBeI7iXvoTxWDqKPYCFsFaKmr+YVliB0JfS89DVpiuhlB9k/tSOZTuYFvq98yI7L0/MAsVWcGp0bfW61hbahwltxSeARsIKyWKesSKQSWIwvYkvvllwfx88pgOvhwthu/AzAxlVX8vz385tLbaVxwpcLZtEw0QDjsBGctzksiE4CimZFfHp++oWHbnbuUfdB0komMgHsRN1r0MWBsEmYODF5onY92/UTwcvBxuzXcN1ccHycVSn2FaPYWwzCQUDWKIt7z3utAJ5c74Hz+OLSomynY+cVfiM/xW3JiDyZpB3FuZrj4oCwE+Ad4qWMjPHjpTtL0mzMoxyZz9yM39Q7Y85Ok930icqm+k59TL2wm9l90dZv8y/8sPAigGf/iUN/Q4anM2zOsdLe+L+4VfwBVVjDs2rTYx0AAAAASUVORK5CYII=');
+  *background-image: url('../../images/message-24-ok.png');
+  background-position: 8px 8px; /* LTR */
+  background-repeat: no-repeat;
+  border: 1px solid #be7;
+}
+.messages--warning {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAACuElEQVRIiWP4//8/Ay0xSYqntTpnT252zqeJBf0Njhsykrz/pyd6/e9vcNpGVQv6q2wlm0qc/r0+IPD/3UG+/61l9v9mdrjIUc2C7hqHUzc3S///eZwBjO9tF/vfWe1wjioWTKixVm8otPn38wQT3IKfxxn/t5Va/utpsNSg2ILWcttrNzdJgQ3+dpQRjEHs+9tE/zeXWt+gyILOamuTqlxrsOtPLub+7+emBsSq/88v5wL7oqHQ9H9nmbkF2RbUF1rev7lJEuziuU3i/90ddcB4UZsoJC62ifyvK7R4QJYFrcUGrmUZ5v9hYb9hosh/bzcDMN42VRgeF9W5hv8bi/XdSbagKtfs2c1NEvCIPbaQ/7+/pwkYn17Ki0hR24T/l2eZPCfJgsZ83dCiNOP/yCnn7iau/8G+5mD8aBsHSoqqyNL9X5erHUm0BcVpRm9ubhZHMoTh/4eDzP/DA23+RwTZ/P96hAlF7t5Wof8FyfpvibKgNk8noyDZ4D9quofg1Bjr/1kJlhjiIF+Upmn/r83RzCJoQXaC3qcbm8SwGMLwvybP/H8jMGlik7u7VeB/Zqz2J7wWVGdr1uTG62J1PQgfWST1/+hiCaxyIF8UJqv9r8hQrcVpQVqkzrcbG0WwGvB2H/P/lnx5MAaxsam5vYn3f2KY+jesFpSlqfZnxWjidP2OGWL/g/0swBjExu4Lhv958Ur/i5KU+lEsCA1lYI4JUv95bZ0gTo2Pt3P+z0myBmMQG5e6mxu4/kf4Kf8EmQm3oCRNebKrvSawIGPBqRG9sMOp5hjjfwdrlf/58bKT4RaUpWvtcLZV/39iscD/H0AFP46jYwYiMeP/44u4/9tbKQODSXUH3II9G7v18hI0n8YGKv+IDVT6joxj/BVx4mgcOCde/SnITPRUJAHEGlTCEkQV19TAAN8FC67hZdFXAAAAAElFTkSuQmCC');
+  *background-image: url('../../images/message-24-warning.png');
+  border-color: #ed5;
+}
+.messages--error {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAACpElEQVR42rWWTUgbQRiGQ0Tx4MWDeFM8eBA9iKAoggiCoCiiIiL4L3oQV1CJB0UEf6iRYFpK7UniTw9VSqL2kvQsVDBpSZrtRo35czVNW3oprRf17exSl4yzu1ikAy9h59vvedhkMrMGAGoxknAk2w8MJ/WosXThiZkZt9jdLeglPjn5ATc3mhJNuNjbK0QbG3ExMICL/n6IfX0gcxB7ekDAELu6IHZ2IlJbi1hLS1BLogmPtbUhMTv7oMSamzUlqnByMxLT0/8STQkDj9TV4ZLj5OysrODl8jIu5Gs68dFR7JG6dWkJ0fFx+TpSX89IDMnwcHU1yKec12Yz3rlc4HkeLwjkXJpPip3U3+7vIx6P4ymph4eG5PlwTQ0lMdytlmBxMWKtrXLeT0zA5XTibvj9fjxfXETkb/3N/Dz2dneVuiTZtliU/rPSUsQ5ziuxZYG03IIlJdKKUPJjdRUAKMmzuTnskB/VYbdTtd9HR4g2NCi9Z2VliDY1BSnBaUEBzsrLqXyzWCiQ9HU5HA4afniIUFWV0hOqqMBpURErOM7NxWlhIZOvCwvA7S3Uxq+DA5AnZ3pO8vJYQSArC8c5Oeqx2Rj4udeLQH6+6v2B7GxW8DkjA0JmJpONwUHY7XZGIAgCzCYTeJUewmIFfqMRfEoKlQ2yJbza2oLWcLvdeDI2hk/3+iQWKzAYkJzNjg5srq9TwJ9OJ76YTNScx+ORJT66X1/grKyEbW2NgfPp6XKd/JMZySrHaQsSU1Oe+0/w3WpVgyu5HBlR6lc+H8gioevDwz6JrWwV5+3txyoSFk5DcOX1MnCyJ4Vwfb1zt1UY9SR8aioDpuppaVpwZbPTl+hHF04dOKzk8XBF8DgJC3/woU/W/EciOtELOWi8DDwp//215Q+p7kiKh2lQSAAAAABJRU5ErkJggg==');
+  *background-image: url('../../images/message-24-error.png');
+  border-color: #ed541d;
+}
+.messages__list {
+  margin: 0;
+}
+.messages__item {
+  list-style-image: none;
+}
+
+/* Core/module installation error messages. */
+.messages--error p.error {
+  color: #333;
+}
+
+/* System status report. */
+.ok,
+.messages--status {
+  background-color: #f8fff0;
+  color: #234600;
+}
+.warning,
+.messages--warning {
+  background-color: #fffce5;
+  color: #840;
+}
+.error,
+.messages--error {
+  background-color: #fef5f1;
+  color: #8c2e0b;
+}
+
+/**
+ * Tabs.
+ */
+
+/* Basic positioning styles shared by primary and secondary tabs. */
+.tabs-primary,
+.tabs-secondary {
+  overflow: hidden;
+  *zoom: 1;
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(100%, #bbbbbb), color-stop(100%, transparent));
+  background-image: -webkit-linear-gradient(bottom, #bbbbbb 1px, transparent 1px);
+  background-image: -moz-linear-gradient(bottom, #bbbbbb 1px, transparent 1px);
+  background-image: -o-linear-gradient(bottom, #bbbbbb 1px, transparent 1px);
+  background-image: linear-gradient(bottom, #bbbbbb 1px, transparent 1px);
+  /* IE 9 and earlier don't understand gradients. */
+  list-style: none;
+  border-bottom: 1px solid #bbbbbb \0/ie;
+  margin: 1.5em 0;
+  padding: 0 2px;
+  white-space: nowrap;
+}
+.tabs-primary__tab,
+.tabs-secondary__tab,
+.tabs-secondary__tab.is-active {
+  float: left; /* LTR */
+  margin: 0 3px;
+}
+a.tabs-primary__tab-link,
+a.tabs-secondary__tab-link {
+  border: 1px solid #e9e9e9;
+  border-right: 0;
+  border-bottom: 0;
+  display: block;
+  line-height: 1.5em;
+  text-decoration: none;
+}
+
+/* Primary tabs. */
+.tabs-primary__tab,
+.tabs-primary__tab.is-active {
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  text-shadow: 1px 1px 0 white;
+  border: 1px solid #bbbbbb;
+  border-bottom-color: transparent;
+  /* IE 9 and earlier don't understand gradients. */
+  border-bottom: 0 \0/ie;
+}
+.is-active.tabs-primary__tab {
+  border-bottom-color: white;
+}
+a.tabs-primary__tab-link,
+a.tabs-primary__tab-link.is-active {
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  -webkit-transition: background-color 0.3s;
+  -moz-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  color: #333;
+  background-color: #dedede;
+  letter-spacing: 1px;
+  padding: 0 1em;
+  text-align: center;
+}
+a.tabs-primary__tab-link:hover,
+a.tabs-primary__tab-link:focus {
+  background-color: #e9e9e9;
+  border-color: #f2f2f2;
+}
+a.tabs-primary__tab-link:active,
+a.tabs-primary__tab-link.is-active {
+  background-color: transparent;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFE9E9E9', endColorstr='#00E9E9E9');
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e9e9e9), color-stop(100%, rgba(233, 233, 233, 0)));
+  background-image: -webkit-linear-gradient(#e9e9e9, rgba(233, 233, 233, 0));
+  background-image: -moz-linear-gradient(#e9e9e9, rgba(233, 233, 233, 0));
+  background-image: -o-linear-gradient(#e9e9e9, rgba(233, 233, 233, 0));
+  background-image: linear-gradient(#e9e9e9, rgba(233, 233, 233, 0));
+  border-color: #fff;
+}
+
+/* Secondary tabs. */
+.tabs-secondary {
+  font-size: .9em;
+  /* Collapse bottom margin of ul.primary. */
+  margin-top: -1.5em;
+}
+.tabs-secondary__tab,
+.tabs-secondary__tab.is-active {
+  margin: 0.75em 3px;
+}
+a.tabs-secondary__tab-link,
+a.tabs-secondary__tab-link.is-active {
+  -webkit-border-radius: 0.75em;
+  -moz-border-radius: 0.75em;
+  -ms-border-radius: 0.75em;
+  -o-border-radius: 0.75em;
+  border-radius: 0.75em;
+  -webkit-transition: background-color 0.3s;
+  -moz-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  text-shadow: 1px 1px 0 white;
+  background-color: #f2f2f2;
+  color: #666;
+  padding: 0 .5em;
+}
+a.tabs-secondary__tab-link:hover,
+a.tabs-secondary__tab-link:focus {
+  background-color: #dedede;
+  border-color: #999;
+  color: #333;
+}
+a.tabs-secondary__tab-link:active,
+a.tabs-secondary__tab-link.is-active {
+  text-shadow: 1px 1px 0 #333333;
+  background-color: #666;
+  border-color: #000;
+  color: #fff;
+}
+
+/**
+ * Inline styles.
+ */
+
+/* List of links generated by theme_links(). */
+.inline {
+  display: inline;
+  padding: 0;
+}
+.inline li {
+  display: inline;
+  list-style-type: none;
+  padding: 0 1em 0 0; /* LTR */
+}
+
+/* The inline field label used by the Fences module. */
+span.field-label {
+  padding: 0 1em 0 0; /* LTR */
+}
+
+/**
+ * "More" links.
+ */
+.more-link {
+  text-align: right; /* LTR */
+}
+.more-help-link {
+  text-align: right; /* LTR */
+}
+.more-help-link a {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA7UlEQVR42qWTPQqDQBCFcwSPkCNITpAj5AjeIm1uYpkyR7Cy2Mot7OwsBAsRwUKwmOwLGRle3EIy8PyBfZ/z3J2TiPylz8VWWZZpUB40BonRKyizaxkA88MYYiqCEgv4MTvnZJom0VqWRbz3FlJZgLYtqmEY1Lg9r+sKsIXcLSC3AC019H0vqLquLeC5AfiHYSGkcdAJimKIBQiJ4+CO92OAtm0FNc8zOjkMwE5Q63FAtbeg6zpAYvG8BWR7i5qmQYwY4MIHqYhE2DOPQWcGJBQF2XU72ZzyUeZ5GCNt5/hybJgYdAXsq5sOEE/jG6dC5IOqCXTmAAAAAElFTkSuQmCC');
+  *background-image: url('../../images/help.png');
+  background-position: 0 50%; /* LTR */
+  background-repeat: no-repeat;
+  padding: 1px 0 1px 20px; /* LTR */
+}
+
+/**
+ * Pager.
+ */
+
+/* A list of page numbers when more than 1 page of content is available. */
+.pager {
+  clear: both;
+  padding: 0;
+  text-align: center;
+}
+
+.pager-item,     /* A list item containing a page number in the list of pages. */
+.pager-first,    /* The first page's list item. */
+.pager-previous, /* The previous page's list item. */
+.pager-next,     /* The next page's list item. */
+.pager-last,     /* The last page's list item. */
+.pager-ellipsis, /* A concatenation of several list items using an ellipsis. */
+.pager-current { /* The current page's list item. */
+  display: inline;
+  padding: 0 0.5em;
+  list-style-type: none;
+  background-image: none;
+}
+.pager-current {
+  font-weight: bold;
+}
+
+/**
+ * Blocks.
+ */
+
+/* Block wrapper. */
+.block {
+  margin-bottom: 1.5em;
+}
+
+/**
+ * Menus.
+ */
+.menu__item.is-leaf {
+  list-style-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHBAMAAAA2fErgAAAAD1BMVEX///+/v7+Li4sAAADAwMBFvsw8AAAAAXRSTlMAQObYZgAAAB1JREFUCFtjYAADYwMGBmYVZSDhKAwkFJWhYiAAAB2+Aa/9ugeaAAAAAElFTkSuQmCC');
+  *list-style-image: url('../../images/menu-leaf.png');
+  list-style-type: square;
+}
+.menu__item.is-expanded {
+  list-style-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHAQMAAAD+nMWQAAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAABJJREFUeJxj+MdQw2DBIMAABgAUsAHD3c3BpwAAAABJRU5ErkJggg==');
+  *list-style-image: url('../../images/menu-expanded.png');
+  list-style-type: circle;
+}
+.menu__item.is-collapsed {
+  list-style-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHAQMAAAD+nMWQAAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAABFJREFUCB1jVmCGQClmEWYOAAZ8AMy3HPLXAAAAAElFTkSuQmCC'); /* LTR */
+  *list-style-image: url('../../images/menu-collapsed.png'); /* LTR */
+  list-style-type: disc;
+}
+
+/* The active item in a Drupal menu. */
+.menu a.active {
+  color: #000;
+}
+
+/**
+ * Marker.
+ */
+
+/* The "new" or "updated" marker. */
+.new,
+.update {
+  color: #c00;
+  /* Remove background highlighting from <mark> in normalize. */
+  background-color: transparent;
+}
+
+/**
+ * Unpublished note.
+ */
+
+/* The word "Unpublished" displayed underneath the content. */
+.unpublished {
+  height: 0;
+  overflow: visible;
+  /* Remove background highlighting from <mark> in normalize. */
+  background-color: transparent;
+  color: #d8d8d8;
+  font-size: 75px;
+  line-height: 1;
+  font-family: Impact, "Arial Narrow", Helvetica, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  /* A very nice CSS3 property. */
+  word-wrap: break-word;
+}
+.lt-ie8 .node-unpublished > *,
+.lt-ie8 .comment-unpublished > * {
+  /* Otherwise these elements will appear below the "Unpublished" text. */
+  position: relative;
+}
+
+/**
+ * Comments.
+ */
+
+/* Wrapper for the list of comments and its title. */
+.comments {
+  margin: 1.5em 0;
+}
+
+/* Preview of the comment before submitting new or updated comment. */
+.comment-preview {
+  /* Drupal core will use a #ffffea background. See #1110842. */
+  background-color: #ffffea;
+}
+
+/* Wrapper for a single comment. */
+.comment {
+  /* Comment's permalink wrapper. */
+}
+.comment .permalink {
+  text-transform: uppercase;
+  font-size: 75%;
+}
+
+/* Nested comments are indented. */
+.indented {
+  /* Drupal core uses a 25px left margin. */
+  margin-left: 30px; /* LTR */
+}
+
+/**
+ * Forms.
+ */
+
+/* Wrapper for a form element (or group of form elements) and its label. */
+.form-item {
+  margin: 1.5em 0;
+}
+
+/* Pack groups of checkboxes and radio buttons closer together. */
+.form-checkboxes .form-item,
+.form-radios .form-item {
+  /* Drupal core uses "0.4em 0". */
+  margin: 0;
+}
+
+/* Form items in a table. */
+tr.odd .form-item,
+tr.even .form-item {
+  margin: 0;
+}
+
+/* Highlight the form elements that caused a form submission error. */
+.form-item input.error,
+.form-item textarea.error,
+.form-item select.error {
+  border: 1px solid #c00;
+}
+
+/* The descriptive help text (separate from the label). */
+.form-item .description {
+  font-size: 0.85em;
+}
+.form-type-radio .description,
+.form-type-checkbox .description {
+  margin-left: 2.4em;
+}
+
+/* The part of the label that indicates a required field. */
+.form-required {
+  color: #c00;
+}
+
+/* Labels for radios and checkboxes. */
+label.option {
+  display: inline;
+  font-weight: normal;
+}
+
+/* Buttons used by contrib modules like Media. */
+a.button {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+}
+
+/* Password confirmation. */
+.password-parent,
+.confirm-parent {
+  margin: 0;
+}
+
+/* Drupal's default login form block. */
+#user-login-form {
+  text-align: left; /* LTR */
+}
+
+/**
+ * OpenID
+ *
+ * The default styling for the OpenID login link seems to assume Garland's
+ * styling of list items.
+ */
+
+/* OpenID creates a new ul above the login form's links. */
+.openid-links {
+  /* Position OpenID's ul next to the rest of the links. */
+  margin-bottom: 0;
+}
+
+/* The "Log in using OpenID" and "Cancel OpenID login" links. */
+.openid-link,
+.user-link {
+  margin-top: 1.5em;
+}
+html.js #user-login-form li.openid-link,
+#user-login-form li.openid-link {
+  /* Un-do some of the padding on the ul list. */
+  margin-left: -20px; /* LTR */
+}
+#user-login ul {
+  margin: 1.5em 0;
+}
+
+/**
+ * Drupal admin tables.
+ */
+form th {
+  text-align: left; /* LTR */
+  padding-right: 1em; /* LTR */
+  border-bottom: 3px solid #ccc;
+}
+form tbody {
+  border-top: 1px solid #ccc;
+}
+form table ul {
+  margin: 0;
+}
+tr.even,
+tr.odd {
+  background-color: #eee;
+  border-bottom: 1px solid #ccc;
+  padding: 0.1em 0.6em;
+}
+tr.even {
+  background-color: #fff;
+}
+.lt-ie8 tr.even th,
+.lt-ie8 tr.even td,
+.lt-ie8 tr.odd th,
+.lt-ie8 tr.odd td {
+  /* IE doesn't display borders on table rows. */
+  border-bottom: 1px solid #ccc;
+}
+
+/* Markup generated by theme_tablesort_indicator(). */
+td.active {
+  background-color: #ddd;
+}
+
+/* Center checkboxes inside table cell. */
+td.checkbox,
+th.checkbox {
+  text-align: center;
+}
+
+/* Drupal core wrongly puts this in system.menus.css. Since we override that, add it back. */
+td.menu-disabled {
+  background: #ccc;
+}
+
+/**
+ * Autocomplete.
+ *
+ * @see autocomplete.js
+ */
+
+/* Suggestion list. */
+#autocomplete .selected {
+  background: #0072b9;
+  color: #fff;
+}
+
+/**
+ * Collapsible fieldsets.
+ *
+ * @see collapse.js
+ */
+html.js .collapsible .fieldset-legend {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHAQMAAAD+nMWQAAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAABJJREFUeJxj+MdQw2DBIMAABgAUsAHD3c3BpwAAAABJRU5ErkJggg==');
+  *background-image: url('../../images/menu-expanded.png');
+  background-position: 5px 65%; /* LTR */
+  background-repeat: no-repeat;
+  padding-left: 15px; /* LTR */
+}
+html.js .collapsed .fieldset-legend {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHAQMAAAD+nMWQAAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAABFJREFUCB1jVmCGQClmEWYOAAZ8AMy3HPLXAAAAAElFTkSuQmCC'); /* LTR */
+  *background-image: url('../../images/menu-collapsed.png'); /* LTR */
+  background-position: 5px 50%; /* LTR */
+}
+.fieldset-legend .summary {
+  color: #999;
+  font-size: 0.9em;
+  margin-left: 0.5em;
+}
+
+/**
+ * TableDrag behavior.
+ *
+ * @see tabledrag.js
+ */
+tr.drag {
+  background-color: #fffff0;
+}
+tr.drag-previous {
+  background-color: #ffd;
+}
+.tabledrag-toggle-weight {
+  font-size: 0.9em;
+}
+
+/**
+ * TableSelect behavior.
+ *
+ * @see tableselect.js
+ */
+tr.selected td {
+  background: #ffc;
+}
+
+/**
+ * Progress bar.
+ *
+ * @see progress.js
+ */
+.progress {
+  font-weight: bold;
+}
+.progress .bar {
+  background: #ccc;
+  border-color: #666;
+  margin: 0 0.2em;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+.progress .filled {
+  background-color: #0072b9;
+  background-image: url('../../images/progress.gif');
+}
+
+
+
+#admin-menu,
+#admin-menu .dropdown {
+  z-index: 99999;
+}
+
+html,
+button,
+input,
+select,
+textarea {
+  color: #222;
+}
+
+body {
+  font-size: 1em;
+  line-height: 1.4;
+  font-family: "museo", sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: #7B1;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  color: #444;
+}
+.frame > div {
+  position:fixed;
+  z-index: 9999;
+  background-color: #444;
+}
+body.keyboard {
+  min-height: 100%;
+  position: relative;
+}
+body.keyboard .frame > div,
+body.keyboard nav.main,
+body.keyboard .menuToggle {
+  position: absolute;
+}
+body.front .frame > div {
+  background-color: white;
+}
+.frame .top {
+  left:0;
+  top:0;
+  right:0;
+  height:20px;
+}
+.frame .bottom {
+  left:0;
+  bottom:0;
+  right:0;
+  height:20px;
+}
+.frame .left {
+  left:0;
+  top:0;
+  bottom:0;
+  width:20px;
+}
+.frame .right {
+  right:0;
+  top:0;
+  bottom:0;
+  width:20px;
+}
+.logged-in .frame .top {
+  top: 29px;
+}
+/*
+nav#main-menu {
+  position: fixed;
+  top: 20px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 9999;
+  width: 90%;
+  max-width: 740px;
+}
+.lt-ie8 nav#main-menu {
+  left: 50%;
+  right: auto;
+  margin-left: -370px;
+}
+nav#main-menu ul {
+  padding: 0;
+  margin: 0;
+  background: #444;
+}
+
+body.front nav#main-menu ul {
+  background: white;
+}
+nav#main-menu ul li {
+  margin: 0;
+  padding: 5px 15px;
+  display: inline-block;
+  font-size: 0.8em;
+}
+.lt-ie8 nav#main-menu ul li {
+  display: inline;
+}
+nav#main-menu ul li a {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+body.front nav#main-menu ul li a {
+  color: #444;
+}
+nav#main-menu ul li a:hover,
+nav#main-menu ul li.active a,
+nav#main-menu ul li.trail a {
+  color: #7B1;
+}*/
+
+
+.menuToggle {
+  display: inline-block;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  width: 120px;
+  margin-left: -60px;
+  padding: 5px 0;
+  background: #444;
+  text-transform: uppercase;
+  cursor: pointer;
+  z-index: 9999;
+  font-size: 0.8em;
+}
+.logged-in .menuToggle {
+  top: 49px;
+}
+
+.lt-ie8 .menuToggle {
+  display: block;
+}
+
+a.menuToggle:hover{
+  color: #7b1;
+}
+
+body.front .menuToggle,
+body.front .searchToggle {
+  background: white;
+}
+
+
+
+/*  ----------------------------------------------------------------
+  MaxCycle (Fullscreen Slideshow for use with jQuery Cycle Plugin)
+  ----------------------------------------------------------------
+  
+  Demo at: http://www.aaronvanderzwan.com/maxcycle/
+  Download and Info at: http://github.com/akv2/MaxCycle---jQuery-Plugin/
+  Copyright (c) 2007-2011 Aaron Vanderzwan
+  Dual licensed under the MIT and GPL licenses.
+  
+*/
+/*! Version: 2.0.73 (12-Oct-2012) */
+
+
+.mc-hide-scrolls{
+  overflow: hidden;
+}
+
+body.front .mc-cycle {
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+div.mc-image {
+  /*NOTE: Mozilla flickers when fading and using 'all', so we have to be specific with what property we want to transition:
+    If you are using fading transitions, use 'opacity: */
+  -webkit-transition: opacity 1s ease-in-out; 
+  -moz-transition: opacity 1s ease-in-out; 
+  -o-transition: opacity 1s ease-in-out; 
+  transition: opacity 1s ease-in-out;
+  
+  /*If you are using horizontal slide transitions, use the following CSS:
+  -webkit-transition: left 1s ease-in-out; 
+  -moz-transition: left 1s ease-in-out; 
+  -o-transition: left 1s ease-in-out; 
+  transition: left 1s ease-in-out;*/
+  
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+  height:100%;
+  overflow:hidden;
+  width:100%;
+}
+
+.mc-old-browser .mc-image {
+  overflow:hidden;
+}
+
+.bkgrnds{
+  background: #000;
+}
+
+.bkgrnds li{
+  /*display: none;*/
+}
+
+.bkgrnds img{
+  top: 0;
+  position: absolute;
+  display: none;
+}
+
+#bgnav {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  z-index: 2;
+}
+
+#bgnav a {
+  display: block;
+  float: left;
+  text-indent: -5000px;
+  width: 15px;
+  height: 15px;
+  margin: 0 5px 0 0;
+  background: white;
+}
+
+#bgnav a.activeSlide {
+  background: #7b1;
+}
+
+
+body.front ul.tabs {
+  display: none;
+}
+
+body.front .field-name-body {
+  position: relative;
+  display: inline-block;
+  margin-top: 60px;
+  width: 50px;
+  overflow: visible;
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  padding: 30px 0;
+}
+.lt-ie8 body.front .field-name-body {
+  display: inline;
+}
+body.front .field-name-body p {
+  width: 360px;
+  margin: 0 0 0 -160px;
+  padding: 0;
+  font-weight: 300;
+  color: #7b1;
+  font-size: 2.8em;
+  line-height: 1;
+}
+body.front .field-name-body p span {
+  display: block;
+  color: #fff;
+}
+
+#page {
+  text-align: center;
+  padding: 40px 40px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+#page #content {
+  text-align: left;
+  color: #666;
+}
+
+#page h2 {
+  color: #7b1;
+  margin-bottom: 0.2em;
+}
+
+#page .masonry .company .info h2 {
+  color: white;
+}
+
+#main {
+  max-width: 1080px; 
+  margin: 40px auto 0;
+  border-top: 1px solid #444;
+  padding: 20px 0;
+  color: #666;
+}
+
+body.front #main {
+  border: none;
+}
+
+#content {
+  padding: 0;
+}
+
+#content article div.field-item:first-of-type {
+  font-size: 1.2em;
+}
+
+p, ul, ol {
+  padding: 0;
+  margin: 0 0 1em;
+}
+
+#block-views-jobs-block-featured.block h2 {
+  font-size: 1em;
+  font-weight: 500;
+  margin: 0 0 0.2em;
+}
+
+.node-4 .field-name-body {
+  float: left;
+  /* width: 48%; */
+}
+
+.block .field-name-node-link {
+  margin-top: 1em;
+}
+
+#block-views-jobs-block-form.block label,
+#block-views-exp-jobs-page.block label {
+  display: none;
+}
+
+#block-views-jobs-block-form.block #edit-field-contract-type-value-wrapper {
+  width: 100%;
+}
+
+
+.field .field-label {
+  font-weight: normal;
+}
+
+.field.field-name-field-reference-code .field-label,
+.field.field-name-field-reference-code .field-item {
+  font-size: 0.7em;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0;
+  color: #CCC;
+}
+
+.field.field-name-field-logo {
+  float: right;
+}
+
+.field.field-name-field-contract-type .field-item {
+  text-transform: capitalize;
+}
+
+/*.field.field-name-field-contract-type,
+.field.field-name-field-disciplines,
+.field.field-name-field-sectors,
+.field.field-name-field-locations,
+.field.field-name-field-salary-minimum,
+.field.field-name-field-salary-maximum,
+.field.field-name-field-hourly-wage-minimum,
+.field.field-name-field-hourly-wage-maximum,
+.field.field-name-field-day-rate-minimum,
+.field.field-name-field-day-rate-maximum,
+.field.field-name-field-contract-type *,
+.field.field-name-field-disciplines *,
+.field.field-name-field-sectors *,
+.field.field-name-field-locations *,
+.field.field-name-field-salary-minimum *,
+.field.field-name-field-salary-maximum *,
+.field.field-name-field-hourly-wage-minimum *,
+.field.field-name-field-hourly-wage-maximum *,
+.field.field-name-field-day-rate-minimum *,
+.field.field-name-field-day-rate-maximum * {
+  display: inline;
+}*/
+
+.field.field-name-field-contract-type .field-item,
+.field.field-name-field-disciplines .field-item,
+.field.field-name-field-sectors .field-item,
+.field.field-name-field-locations .field-item,
+.field.field-name-field-salary-minimum .field-item,
+.field.field-name-field-hourly-wage-minimum .field-item,
+.field.field-name-field-day-rate-minimum .field-item {
+  background: no-repeat left;
+  background-size: auto 20px;
+  margin-right: 20px;
+}
+
+.field.field-name-field-contract-type .field-item {
+  padding-left: 21px;
+  background-image: url('../../images/icon_type.png');
+}
+
+.field.field-name-field-locations .field-item {
+  padding-left: 15px;
+  background-image: url('../../images/icon_location.png');
+}
+
+.field.field-name-field-salary-minimum .field-item ,
+.field.field-name-field-hourly-wage-minimum .field-item,
+.field.field-name-field-day-rate-minimum .field-item {
+  padding-left: 31px;
+  background-image: url('../../images/icon_salary.png');
+}
+
+#block-views-jobs-block-featured .field.field-name-field-salary-minimum,
+#block-views-jobs-block-featured .field.field-name-field-salary-minimum div,
+#block-views-jobs-block-featured .field.field-name-field-hourly-wage-minimum,
+#block-views-jobs-block-featured .field.field-name-field-hourly-wage-minimum div,
+#block-views-jobs-block-featured .field.field-name-field-day-rate-minimum,
+#block-views-jobs-block-featured .field.field-name-field-day-rate-minimum div {
+  display: block;
+}
+
+#block-views-jobs-block-featured .field.field-name-field-salary-minimum .field-item,
+#block-views-jobs-block-featured .field.field-name-field-hourly-wage-minimum .field-item,
+#block-views-jobs-block-featured .field.field-name-field-day-rate-minimum .field-item {
+  background: none;
+  padding-left: 0;
+}
+
+body.page-node.node-type-job .field.field-name-employer-description {
+  margin-top: 1em;
+  border-top: 1px solid #CCC;
+  border-bottom: 1px solid #444;
+  padding: 1em 0;
+  font-size: 1.2em;
+}
+
+body.page-node.node-type-job .node-job > .field-name-body {
+  padding: 20px 0;
+}
+
+body.page-node.node-type-job .field.field-name-field-contract-type,
+body.page-node.node-type-job .field.field-name-field-disciplines,
+body.page-node.node-type-job .field.field-name-field-sectors,
+body.page-node.node-type-job .field.field-name-field-locations,
+body.page-node.node-type-job .field.field-name-field-salary-minimum,
+body.page-node.node-type-job .field.field-name-field-salary-maximum,
+body.page-node.node-type-job .field.field-name-field-hourly-wage-minimum,
+body.page-node.node-type-job .field.field-name-field-hourly-wage-maximum,
+body.page-node.node-type-job .field.field-name-field-day-rate-minimum,
+body.page-node.node-type-job .field.field-name-field-day-rate-maximum {
+  font-size: 0.8em;
+  float: left;
+}
+
+#block-views-jobs-block-featured .views-row {
+  width: 23%;
+  /*margin-right: 2%;*/
+  font-size: 0.9em;
+  float: left;
+  color: #222;
+}
+
+body.page-search-results .view-filters {
+  float: right;
+  width: 33%;
+}
+.page-job-search-results #block-views-exp-job-search-results-page-1, .node-type-job #block-views-exp-job-search-results-page-1{
+	/*float: left;
+	width: 33%;
+	margin-right: 0;*/
+}
+
+
+body.page-search-results .views-row {
+  border-top: 1px solid #ccc;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  border: none;
+  padding: 6px 10px;
+  margin: 0;
+  font-size: 0.9em;
+  color: #fff;
+  background: #7B1;
+  font-weight: 500;
+}
+
+body.focus{
+	background: #333;
+}
+body.focus{
+		background: #333;
+}
+
+body.focus .intro{
+	color: #fff;
+}
+
+body.focus .intro h1, body.focus .content p{
+	color: #fff;
+}
+
+body.focus .dark{
+	background: #fff;
+	color: #333;
+}
+body.focus .intro .field-type-image {
+	height: 280px;
+	overflow: hidden;
+}
+body.focus .intro .field-type-image {
+	float: right;
+	width: 49%;
+  margin-top: -2em;
+}
+body.focus .intro, body.trust .columns {
+	border-top: 1px solid #ccc;
+}
+
+form#views-exposed-form-organisations-credentials input#edit-submit-organisations {
+ /* display: none; */
+}
+#edit-field-maximum-salary-value-wrapper,#edit-field-minimum-salary-value-wrapper,#edit-field-maximum-hourly-value-wrapper,#edit-field-minimum-hourly-value-wrapper{
+	display: none; 	
+}
+.form-item select {
+	display: block;
+	width: 100%;
+	background: #eee;
+	border-color: #eee;
+	border-radius: 3px;
+	font-size: 0.9em;
+}
+.form-item input[type="text"],
+.form-item input[type="email"],
+.form-item textarea,
+.form-item input[type="password"] {
+	display: block;
+	width: 100%;
+  box-sizing: border-box;
+	padding: 0 0.4rem;
+	margin: 0 0 0.1em;
+	border: 1px solid #e5e5e5;
+	background: #eee;
+	-webkit-transition: background 0.5s ease;
+	transition: background 0.5s ease;
+	border-radius: 3px;
+	font-size: 0.9em;
+	color: #222;
+	height: 2em;
+	line-height: 2em;
+}
+.lt-ie8 .form-item input[type="text"],
+.lt-ie8 .form-item input[type="email"],
+.lt-ie8 .form-item textarea,
+.lt-ie8 .form-item input[type="password"] {
+  behavior: url(../../../../../../walker-hamill/build/sites/all/themes/walkerhamill/js/boxsizing.html);
+}
+.form-item textarea {
+	height: 100px;
+}
+.form-item label {
+	display: block;
+	font-weight: normal;
+}
+.js .form-item.webform-component {
+	position: relative;
+}
+.js .form-item.webform-component label {
+	position: absolute;
+  z-index: 2;
+	/*top: 0.65em;*/
+	left: 0.4rem;
+	font-size: 0.9em;
+	color: #222;
+	line-height: 2em;
+  font-weight: 300;
+}
+.js .form-item.webform-component-managed_file label {
+  position: relative;
+  left: auto;
+}
+.form-managed-file {
+  clear: both;
+  overflow: hidden;
+  padding: 0 0 1em;
+  margin: 0 0 1em;
+  border-bottom: 1px solid #eee;
+}
+.form-managed-file .form-file {
+  float: left;
+  width: 75%;
+}
+.form-managed-file .form-submit {
+  float: right;
+}
+.view-organisations .views-exposed-form .views-exposed-widget{
+	width:46%;
+}
+.bef-select-as-links .form-item {
+	float: left;
+	width: 100%;
+}
+.bef-select-as-links .form-item div {
+	font-size: 0.8em;
+}
+.bef-select-as-links .form-item div {
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 2px;
+	margin-bottom: 2px;
+	list-style: none;
+}
+.bef-select-as-links .form-item div a {
+	padding: 5px 0;
+	display: block;
+}
+.form-item-field-departments-tid{
+	padding:0;
+	margin:0;background-color: #fff;
+	border-bottom: 1px solid #ddd;
+}
+.error-box li{
+	list-style: none;
+}
+.error-box li .error{
+	color:#7B1;
+	background-color: #fff;
+	
+}
+/************************************
+          MINIMALECT 0.9
+  A minimalistic select replacement
+
+ jQuery 1.7+ required.
+ Developed by @groenroos
+ http://www.groenroos.fi
+
+ Github: http://git.io/Xedg9w
+
+ Licensed under the MIT license.
+
+************************************/
+.minict_wrapper {
+  color: #333;
+  background: #fff;
+  position: relative;
+  /*width: 300px;*/
+  width: auto;
+  /*height: 2.2rem;*/
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; 
+}
+  .minict_wrapper * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+  .minict_wrapper.disabled {
+    background: #f5f5f5;
+    text-shadow: 0 1px 0 #fff; }
+    .minict_wrapper.disabled span {
+      color: #bbb !important; }
+  .minict_wrapper:after {
+    content: "\25BC";
+    display: block;
+    position: absolute;
+    height: 3.1em;
+    width: 3.1em;
+    top: 0;
+    right: 0;
+    font-size: 0.6em;
+    line-height: 3.5em;
+    text-align: center;
+    color: #555; }
+  .minict_wrapper.active:after {
+    content: "\25B2"; }
+  .minict_wrapper.disabled:after {
+    color: #bbb; }
+  .minict_wrapper span {
+    display: block;
+    border: 0;
+    outline: none;
+    color: #333;
+    font-size: 0.9em;
+    height: 26px;
+    line-height: 20px;
+    padding: 4px 53px 0 6px;
+    cursor: default;
+    background: #eee;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+    .minict_wrapper span:empty:before {
+      content: attr(data-placeholder);
+      color: #ccc;
+    }
+  .minict_wrapper ul {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0 -1px;
+    position: absolute;
+    width: 100%;
+    width: -webkit-calc(100% + 2px);
+    width: -moz-calc(100% + 2px);
+    width: calc(100% + 2px);
+    border: 1px solid #e5e5e5;
+    border-top: 1px solid #f9f9f9;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    top: 33px;
+    top: 2.0rem;
+    left: 0;
+    max-height: 350px;
+    max-height: 22rem;
+    overflow-y: auto;
+    z-index: 999999; }
+    .minict_wrapper ul li {
+      list-style: none;
+      padding: 0 10px;
+      padding: 0 0.7rem;
+      cursor: pointer;
+      background: #fff;
+      /*height: 2.2rem;*/
+      /*line-height: 32px;*/
+      /*line-height: 2rem; */}
+      .minict_wrapper ul li:hover {
+        background: #fcfcfc;
+        color: #111; }
+      .minict_wrapper ul li.minict_group {
+        color: #444;
+        background: #f6f6f6;
+        font-weight: bold;
+        cursor: default; }
+      .minict_wrapper ul li.minict_empty {
+        display: none;
+        background: #fff !important;
+        color: #bbb;
+        text-align: center;
+        font-size: 14px;
+        font-size: 0.9rem;
+        height: 55px;
+        height: 3.5rem;
+        line-height: 50px;
+        line-height: 3.3rem; }
+      .minict_wrapper ul li.disabled {
+        cursor: default;
+        background: #fff !important;
+        color: #bbb; }
+      .minict_wrapper ul li.selected {
+        color: #444;
+        background: #c9e4a0; }
+      .minict_wrapper ul li.highlighted {
+        color: #fff;
+        background: #819a9a; }
+      .minict_wrapper ul li.hidden {
+        display: none; }
+  .minict_wrapper .minict_reset {
+    color: #A9A9A9;
+    bottom: 0;
+    display: none;
+    font-size: 14px;
+    line-height: 26px;
+    position: absolute;
+    right: 35px;
+    text-align: center;
+    top: 0;
+    text-decoration: none;
+    width: 20px;
+    -webkit-transition: all 0.35s ease-in-out;
+    transition: all 0.35s ease-in-out; }
+    .minict_wrapper .minict_reset:hover {
+      color: #e0e0e0;
+      -webkit-transition: all 0.15s ease-in-out;
+      transition: all 0.15s ease-in-out; }
+    .minict_wrapper .minict_reset:active {
+      color: #636363; }
+  .minict_wrapper.disabled .minict_reset {
+    display: none; }
+
+.minict_wrapper.bubble {
+  -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.05);
+  background: -moz-linear-gradient(top, white 0%, #f9f9f9 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #f9f9f9));
+  background: -webkit-linear-gradient(top, white 0%, #f9f9f9 100%);
+  background: -o-linear-gradient(top, white 0%, #f9f9f9 100%);
+  background: -ms-linear-gradient(top, white 0%, #f9f9f9 100%);
+  background: linear-gradient(to bottom, white 0%, #f9f9f9 100%); }
+  .minict_wrapper.bubble:hover {
+    border-color: #dcdcdc; }
+  .minict_wrapper.bubble:after {
+    border-left: 1px solid #e5e5e5;
+    -webkit-box-shadow: inset 1px 0px 0px 0px #fff;
+    box-shadow: inset 1px 0px 0px 0px #fff;
+    height: 2.05rem; }
+  .minict_wrapper.bubble ul {
+    top: 2.7rem;
+    -webkit-box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    overflow: visible; }
+    .minict_wrapper.bubble ul:before {
+      position: absolute;
+      top: -11px;
+      left: 19px;
+      content: ".";
+      color: transparent;
+      width: 0px;
+      height: 0px;
+      border-style: solid;
+      border-width: 0 11px 11px 11px;
+      border-color: transparent transparent #e5e5e5 transparent; }
+    .minict_wrapper.bubble ul:after {
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      content: ".";
+      color: transparent;
+      width: 0px;
+      height: 0px;
+      border-style: solid;
+      border-width: 0 10px 10px 10px;
+      border-color: transparent transparent #ffffff transparent; }
+    .minict_wrapper.bubble ul li.minict_first {
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px; }
+    .minict_wrapper.bubble ul li.minict_last {
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px; }
+  .minict_wrapper.bubble .minict_reset {
+    width: 30px; }
+
+
+span.asterisk{
+  color: red !important;
+  position: absolute !important;
+  top: 1% !important;
+  left: 4.6em !important;
+  width: auto !important;
+  height: auto !important;
+  background: transparent !important;
+  border: 0 !important;
+}
+
+.search-again .asterisk{
+  color: red !important;
+  position: absolute !important;
+  top: 1% !important;
+  left: 45% !important;
+}
